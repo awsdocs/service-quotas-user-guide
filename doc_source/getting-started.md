@@ -1,10 +1,10 @@
 # Getting started with Service Quotas<a name="getting-started"></a>
 
-When you open the Service Quotas console, the dashboard displays cards for up to nine services\. Each card lists the number of service quotas for the service\. Choosing a card opens a page that displays the quotas for the service\. You can choose which services appear on the dashboard\.
+When you open the Service Quotas console, the dashboard displays cards for up to nine services\. Each card lists the number of service quotas for the AWS service\. Choosing a card opens a page that displays the quotas for the service\. You can choose which services appear on the dashboard\.
 
 **To modify the dashboard service cards**
 
-1. Open the Service Quotas console at [https://console\.aws\.amazon\.com/servicequotas/](https://console.aws.amazon.com/servicequotas/)\.
+1. Sign in to the AWS Management Console and open the Service Quotas console at [https://console\.aws\.amazon\.com/servicequotas/home](https://console.aws.amazon.com/servicequotas/home)\.
 
 1. On the dashboard, choose **Modify dashboard cards**\.
 

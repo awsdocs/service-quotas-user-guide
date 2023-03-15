@@ -1,6 +1,10 @@
 # Service quotas for Service Quotas<a name="reference_limits"></a>
 
-This table lists the default maximum values for Service Quotas resources for your AWS account\. These quota values are per Region, unless noted otherwise\. You can't adjust these quota values\.
+The following tables list the maximum values for Service Quotas resources for your AWS account\. 
+
+All of these quota values are per AWS Region, unless noted otherwise\. 
+
+You can't adjust these quota values\.
 
 
 **Increase requests**  

@@ -2,19 +2,19 @@
 
 AWS uses security credentials to identify you and to grant you access to your AWS resources\. You can use features of AWS Identity and Access Management \(IAM\) to allow other users, services, and applications to use your AWS resources fully or in a limited way\. You can do this without sharing your security credentials\.
 
-By default, IAM users don't have permission to create, view, or modify AWS resources\. To allow an IAM user to access resources such as a load balancer, and to perform tasks, you:
+By default, principals, such as IAM roles or users, don't have permission to create, view, or modify AWS resources\. To allow a principal to access resources such as a load balancer, and to perform tasks, perform the following steps:
 
-1. Create an IAM policy that grants the IAM user permission to use the specific resources and API actions they need\.
+1. Create an IAM policy that grants the principal permission to use the specific resources and API actions they need\.
 
-1. Attach the policy to the IAM user or the group that the IAM user belongs to\.
+1. Attach the policy to the IAM principal or the group that the principal belongs to\.
 
 When you attach a policy to a user or group of users, it allows or denies the users permission to perform the specified tasks on the specified resources\.
 
-For example, you can use IAM to create users and groups under your AWS account\. An IAM user can be a person, a system, or an application\. Then you grant permissions to the users and groups to perform specific actions on the specified resources using an IAM policy\.
+For example, you can use IAM to create roles or users as the principals in your AWS account\. A principal can represent a person, a system, or an application\. Then you grant permissions to the principals to perform specific actions on the specified resources using an IAM policy\.
 
 ## Grant permissions using IAM policies<a name="iam-policies"></a>
 
-When you attach a policy to a user or group of users, it allows or denies the users permission to perform the specified tasks on the specified resources\.
+When you attach a policy to a principal or a group of principals, it allows or denies those principals permission to perform the specified tasks on the specified resources\.
 
 An IAM policy is a JSON document that consists of one or more statements\. Each statement is structured as shown in the following example\.
 
@@ -33,16 +33,16 @@ An IAM policy is a JSON document that consists of one or more statements\. Each 
   }]
 }
 ```
-+ **Effect**— The *effect* can be `Allow` or `Deny`\. By default, IAM users don't have permission to use resources and API actions, so all requests are denied\. An explicit allow overrides the default\. An explicit deny overrides any allows\.
-+ **Action**— The *action* is the specific API action for which you are granting or denying permission\. For more information about specifying *action*, see [API actions for Service Quotas](#api-actions)\.
-+ **Resource**— The resource that's affected by the action\. With some Service Quotas API actions, you can restrict the permissions granted or denied to a specific quota\. To do so, specify its Amazon Resource Name \(ARN\) in this statement\. Otherwise, you can use the \* wildcard to specify all Service Quotas resources\. For more information, see [Service Quotas resources](#resources)\.
-+ **Condition**— You can optionally use conditions to control when your policy is in effect\. For more information, see [Condition keys for Service Quotas](#condition-keys)\.
++ **`Effect`** – The value for **effect** can be either `Allow` or `Deny`\. By default, IAM principals don't have permission to use resources and API actions, so all requests are denied\. An explicit allow overrides the default\. An explicit deny overrides any allows\.
++ **`Action`** – The value for **action** is the specific API action for which you are granting or denying permission\. For more information about specifying `Action`, see [API actions for Service Quotas](#api-actions)\.
++ `Resource` – The resource that's affected by the action\. With some Service Quotas API actions, you can restrict the permissions granted or denied to a specific quota\. To do so, specify its Amazon Resource Name \(ARN\) in this statement\. Otherwise, you can use the wildcard character \(`*`\) to specify all Service Quotas resources\. For more information, see [Service Quotas resources](#resources)\.
++ `Condition` – You can optionally use conditions to control when your policy is in effect\. For more information, see [Condition keys for Service Quotas](#condition-keys)\.
 
-For more information, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
+For more information, see the *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
 
 ## API actions for Service Quotas<a name="api-actions"></a>
 
-In the **Action** element of your IAM policy statement, you can specify any API action that Service Quotas offers\. You must prefix the action name with the lowercase string `servicequotas:`, as shown in the following example\.
+In the `Action` element of your IAM policy statement, you can specify any API action that Service Quotas offers\. You must prefix the action name with the lowercase string `servicequotas:`, as shown in the following example\.
 
 ```
 "Action": "servicequotas:GetServiceQuota"
@@ -57,13 +57,13 @@ To specify multiple actions in a single statement, enclose them in square bracke
 ]
 ```
 
-You can also specify multiple actions using the \* wildcard\. The following example specifies all API action names for Service Quotas that start with `Get`\.
+You can also specify multiple actions using the wildcard character \(`*`\)\. The following example specifies all API action names for Service Quotas that start with `Get`\.
 
 ```
 "Action": "servicequotas:Get*"
 ```
 
-To specify all API actions for Service Quotas, use the \* wildcard, as shown in the following example\.
+To specify all API actions for Service Quotas, use the wildcard character \(`*`\), as shown in the following example\.
 
 ```
 "Action": "servicequotas:*"
@@ -93,7 +93,7 @@ The following Service Quotas actions support resource\-level permissions:
 + [PutServiceQuotaIncreaseRequestIntoTemplate](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_PutServiceQuotaIncreaseRequestIntoTemplate.html)
 + [RequestServiceQuotaIncrease](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html)
 
-For more information, see [Actions Defined by Service Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_servicequotas.html#servicequotas-actions-as-permissions) in the *IAM User Guide*\.
+For more information, see [Actions defined by Service Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_servicequotas.html#servicequotas-actions-as-permissions) in the *Service Authorization Reference*\.
 
 ## Condition keys for Service Quotas<a name="condition-keys"></a>
 
@@ -107,6 +107,6 @@ For more information about global condition keys, see [AWS Global Condition Cont
 
 ## Predefined AWS managed policies for Service Quotas<a name="predefined-policies"></a>
 
-The managed policies created by AWS grant the required permissions for common use cases\. You can attach these policies to your IAM users, based on the access to Service Quotas that they require:
-+ **ServiceQuotasFullAccess** — Grants full access required to use Service Quotas features\.
-+ **ServiceQuotasReadOnlyAccess** — Grants read\-only access to Service Quotas features\.
+The managed policies created by AWS grant the required permissions for common use cases\. You can attach these policies to your IAM principals, based on the access to Service Quotas that they require:
++ `ServiceQuotasFullAccess` – Grants full access required to use Service Quotas features\.
++ `ServiceQuotasReadOnlyAccess` – Grants read\-only access to Service Quotas features\.

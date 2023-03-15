@@ -1,6 +1,6 @@
-# Compliance validation for AWS Service Quotas<a name="compliance"></a>
+# Compliance validation for Service Quotas<a name="compliance"></a>
 
-Third\-party auditors assess the security and compliance of AWS Service Quotas as part of multiple AWS compliance programs\. These include SOC, PCI, FedRAMP, HIPAA, and others\.
+Third\-party auditors assess the security and compliance of Service Quotas as part of multiple AWS compliance programs\. These include SOC, PCI, FedRAMP, HIPAA, and others\.
 
 For a list of AWS services in scope of specific compliance programs, see [AWS Services in Scope by Compliance Program](http://aws.amazon.com/compliance/services-in-scope/)\. For general information, see [AWS Compliance Programs](http://aws.amazon.com/compliance/programs/)\.
 
